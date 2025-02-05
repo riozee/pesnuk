@@ -58,6 +58,54 @@ Pesnuk is your antidote to this "disease" - a tool to use Facebook intentionally
 
 ---
 
+## 🧠 Core Technical Concept
+
+Pesnuk’s core strategy is to **act as a middleware between you and Facebook**, using a combination of WebView, DOM scraping, and a custom UI to reshape your experience. Here’s how it works:
+
+---
+
+### **1. WebView as the Backbone**
+- **What it does**:  
+  Pesnuk uses a hidden `WebView` (via `react-native-webview`) to load Facebook’s mobile site in the background.  
+- **Why it’s used**:  
+  - No need to reverse-engineer Facebook’s API (which is complex and against their terms of service).  
+  - Maintains compatibility with Facebook’s ever-changing UI.  
+  - Preserves login sessions securely via cookies.  
+
+---
+
+### **2. DOM Scraping for Data Extraction**
+- **What it does**:  
+  JavaScript is injected into the WebView to extract specific elements (e.g., notifications, posts) using **CSS selectors** or **XPath**.  
+- **Why it’s used**:  
+  - Allows us to **filter out unnecessary content** (e.g., ads, suggested posts, stories).  
+  - Enables **custom presentation** of data (e.g., card view, notifications-first layout).  
+
+---
+
+### **3. Custom UI for Mindful Interaction**
+- **What it does**:  
+  The scraped data is presented in a **minimalist, distraction-free UI** built with React Native.  
+- **Why it’s used**:  
+  - Replaces Facebook’s addictive design with intentional interactions.  
+  - Provides **guardrails** (e.g., post limits, one-tap exit) to prevent mindless scrolling.  
+
+---
+
+### **How It All Fits Together**
+1. **User opens Pesnuk**: The app loads Facebook in a hidden WebView.  
+2. **Scraping begins**: JavaScript extracts notifications and posts from the DOM.  
+3. **Custom UI renders**: Data is presented in a minimalist, card-based layout.   
+
+---
+
+### **Why This Approach?**
+- **Simplicity**: No need to maintain a backend or reverse-engineer APIs.  
+- **Privacy**: All data stays on the device; no servers are involved.  
+- **Flexibility**: Adapts to Facebook’s UI changes without breaking the app.
+
+---
+
 ## 🛠 Roadmap (Research Phase)
 
 ### Phase 0: Technical Research (Current Stage)
